@@ -2,6 +2,14 @@ class LinkedList<T> {
     
     class Node<T>(var value: T, var nexNode: Node<T>? = null)
     
+    private var head: Node<T>? = null
+    
+    private var last: Node<T>? = null
+    
+    private var size: Int = 0
+    
+    fun count(): Int = size
+       
     fun insert(index: Int, obj: T) {
         TODO("Not yet implemented")
     }
@@ -17,9 +25,7 @@ class LinkedList<T> {
     fun find(obj: T): Int {
         TODO("Not yet implemented")
     }
-    fun count(): Int {
-        TODO("Not yet implemented")
-    }
+    
     fun clear() {
         TODO("Not yet implemented")
     }
