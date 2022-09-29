@@ -51,9 +51,9 @@ class LinkedList<T> {
             insertFirst(value)
         }
         else {
-            var prev = get(index-1)
-            var newNode = Node(value, prev.nextNode)
-            prev.nextNode = newNode
+            var prevNode = getNode(index-1)
+            var newNode = Node(value, prevNode.nextNode)
+            prevNode.nextNode = newNode
             size++
         }
     }
