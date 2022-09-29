@@ -31,7 +31,7 @@ class LinkedList<T> {
         size++
     }
 
-    fun add(value: T) {
+    fun insertLast(value: T) {
         if (size==0) {
             insertFirst(value)
         }
