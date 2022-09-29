@@ -46,6 +46,7 @@ class LinkedList<T> {
     }
     
     fun insert(index: Int, value: T) {
+        require(index in 0 until size)
         if (size==0 || index == size) {
             insertLast(value)
         }
