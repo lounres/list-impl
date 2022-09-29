@@ -1,4 +1,7 @@
 class LinkedList<T> {
+    
+    class Node<T>(var value: T, var nexNode: Node<T>? = null)
+    
     fun insert(index: Int, obj: T) {
         TODO("Not yet implemented")
     }
