@@ -8,9 +8,7 @@ class LinkedList<T> {
     
     private var size: Int = 0
     
-    fun count(): Int {
-        return size
-    }
+    fun count(): Int = size
        
     fun insert(index: Int, obj: T) {
         TODO("Not yet implemented")
