@@ -19,10 +19,12 @@ class LinkedList<T> {
         }
         return current!!
     }
+    
     operator fun get(index: Int): T {
         require(index in 0 until size-1)
         return getNode(index).value
     }
+    
     operator fun set(index: Int, obj: T) {
         TODO("Not yet implemented")
     }
@@ -48,7 +50,7 @@ class LinkedList<T> {
     
     fun insert(index: Int, value: T) {
         if (size==0 || index == size) {
-            insertFirst(value)
+            insertLast(value)
         }
         else {
             var prevNode = getNode(index-1)
