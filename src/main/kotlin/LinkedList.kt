@@ -1,6 +1,6 @@
 class LinkedList<T> {
     
-    class Node<T>(var value: T, var nexNode: Node<T>? = null)
+    class Node<T>(var value: T, var nextNode: Node<T>? = null)
     
     private var head: Node<T>? = null
     
@@ -10,18 +10,59 @@ class LinkedList<T> {
     
     fun count(): Int = size
        
-    fun insert(index: Int, obj: T) {
-        TODO("Not yet implemented")
+    private fun getNode(index: Int): Node<T> {
+        var current = head
+        var currentIndex = 0
+        while (current != null && currentIndex < index) {
+            current = current.nextNode
+            currentIndex++
+        }
+        return current!!
     }
-    fun removeAt(index: Int) {
-        TODO("Not yet implemented")
-    }
+    
     operator fun get(index: Int): T {
-        TODO("Not yet implemented")
+        require(index in 0 until size-1)
+        return getNode(index).value
     }
+    
     operator fun set(index: Int, obj: T) {
         TODO("Not yet implemented")
     }
+    
+    fun insertFirst(value: T) {
+        head = Node(value = value, nextNode = head)
+        if (last == null) {
+            last = head
+        }
+        size++
+    }
+
+    fun insertLast(value: T) {
+        val newLast = Node(value = value)
+        last?.nextNode = newLast
+        last = newLast
+        if (size == 0) head = newLast
+        size++
+    }
+    
+    fun insert(index: Int, value: T) {
+        require(index in 0 until size)
+        when (index) {
+            0 -> insertFirst(value)
+            size -> insertLast(value)
+            else -> {
+                var prevNode = getNode(index-1)
+                var newNode = Node(value, prevNode.nextNode)
+                prevNode.nextNode = newNode
+                size++
+            }
+        }
+    }
+    
+    fun removeAt(index: Int) {
+        TODO("Not yet implemented")
+    }
+    
     fun find(obj: T): Int {
         TODO("Not yet implemented")
     }
