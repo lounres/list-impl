@@ -10,14 +10,18 @@ class LinkedList<T> {
     
     fun count(): Int = size
        
-    operator fun get(index: Int): T {
+    private fun getNode(index: Int): Node<T> {
         var current = head
         var currentIndex = 0
         while (current != null && currentIndex < index) {
             current = current.nextNode
             currentIndex++
         }
-        return current
+        return current!!
+    }
+    operator fun get(index: Int): T {
+        require(index in 0 until size-1)
+        return getNode(index).value
     }
     operator fun set(index: Int, obj: T) {
         TODO("Not yet implemented")
