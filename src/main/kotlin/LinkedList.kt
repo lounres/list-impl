@@ -38,14 +38,11 @@ class LinkedList<T> {
     }
 
     fun insertLast(value: T) {
-        if (size==0) {
-            insertFirst(value)
-        }
-        else {
-            last?.nextNode = Node(value = value)
-            last= last?.nextNode
-            size++
-        }
+        val newLast = Node(value = value)
+        last?.nextNode = newLast
+        last = newLast
+        if (size == 0) head = newLast
+        size++
     }
     
     fun insert(index: Int, value: T) {
