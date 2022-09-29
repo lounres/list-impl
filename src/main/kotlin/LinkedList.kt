@@ -47,14 +47,15 @@ class LinkedList<T> {
     
     fun insert(index: Int, value: T) {
         require(index in 0 until size)
-        if (size==0 || index == size) {
-            insertLast(value)
-        }
-        else {
-            var prevNode = getNode(index-1)
-            var newNode = Node(value, prevNode.nextNode)
-            prevNode.nextNode = newNode
-            size++
+        when (index) {
+            0 -> insertFirst(value)
+            size -> insertLast(value)
+            else -> {
+                var prevNode = getNode(index-1)
+                var newNode = Node(value, prevNode.nextNode)
+                prevNode.nextNode = newNode
+                size++
+            }
         }
     }
     
