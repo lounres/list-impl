@@ -82,6 +82,7 @@ class LinkedList<T> {
             if (index == size - 1) last = previousNode
             currentNode.dispose()
         }
+        size--
     }
     
     fun find(obj: T): Int {
