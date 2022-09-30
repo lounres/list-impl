@@ -35,6 +35,7 @@ class LinkedList<T> {
     }
     
     operator fun set(index: Int, obj: T) {
+        require(index in 0 until size)
         getNode(index).value = obj
     }
     
