@@ -30,7 +30,7 @@ class LinkedList<T> {
     }
     
     operator fun get(index: Int): T {
-        require(index in 0 until size-1)
+        require(index in 0 until size)
         return getNode(index).value
     }
     
